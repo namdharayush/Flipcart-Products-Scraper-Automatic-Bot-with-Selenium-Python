@@ -1,6 +1,6 @@
 import pymongo
 from datetime import datetime
-class Flipcart_Mongo:
+class Flipkart_Mongo:
     def __init__(self):
         self.create_connections()
         self.create_unique_index()

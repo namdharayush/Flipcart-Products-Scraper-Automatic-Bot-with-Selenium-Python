@@ -5,8 +5,8 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from flipcartMongo import Flipcart_Mongo
-class Flipcart:
+from flipkartMongo import Flipkart_Mongo
+class Flipkart:
     def __init__(self):
         self.main_url = 'https://www.flipkart.com/'
         self.driver = self.start_driver(self.main_url)
@@ -18,7 +18,7 @@ class Flipcart:
         driver.get(url)
         return driver
     def scrape_with_selenium(self):
-        Flipcart_mongoDb = Flipcart_Mongo()
+        Flipkart_mongoDb = Flipkart_Mongo()
         # keywords = ['redmi mobiles','samsung mobiles','iphone','vivo mobiles','oppo mobiles']
         keywords = ['samsung mobiles','iphone','vivo mobiles','oppo mobiles']
         for keyword in keywords:
@@ -49,7 +49,7 @@ class Flipcart:
                     except:
                         product_link = ''
                     try:
-                        Flipcart_mongoDb.insert_data({'product_link': product_link})
+                        Flipkart_mongoDb.insert_data({'product_link': product_link})
                     except:
                         print("Duplicate")
                 try:
@@ -66,6 +66,6 @@ class Flipcart:
                 pass
 
 if __name__ == '__main__':
-    webscrapper = Flipcart()
+    webscrapper = Flipkart()
     webscrapper.scrape_with_selenium()
 

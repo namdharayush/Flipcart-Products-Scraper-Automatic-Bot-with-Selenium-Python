@@ -3,11 +3,11 @@ from lxml import html
 import json
 import os
 import time
-from flipcartMongo import Flipcart_Mongo
+from flipkartMongo import Flipkart_Mongo
 import re
 import pandas as pd
 
-class Flipcart_Scrap:
+class Flipkart_Scrap:
     def __init__(self):
         self.headers = {
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
@@ -35,9 +35,9 @@ class Flipcart_Scrap:
         self.json_output_file = 'flipcart.json'
 
     def scrape(self):
-        flipcart_mongo = Flipcart_Mongo()
-        flipcart_mongo.create_connections()
-        collection = flipcart_mongo.collection
+        flipkart_mongo = Flipkart_Mongo()
+        flipkart_mongo.create_connections()
+        collection = flipkart_mongo.collection
         products = collection.find()
         for product in products:
             print(product['_id'])
@@ -159,5 +159,5 @@ class Flipcart_Scrap:
             df.to_json(self.json_output_file, orient='records', indent=4)
 
 if __name__ == '__main__':
-    webscrape = Flipcart_Scrap()
+    webscrape = Flipkart_Scrap()
     webscrape.scrape()
