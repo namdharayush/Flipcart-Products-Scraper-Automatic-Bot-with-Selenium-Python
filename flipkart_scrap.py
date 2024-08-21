@@ -30,9 +30,9 @@ class Flipkart_Scrap:
             'sec-ch-ua-platform': '"Windows"',
             'sec-ch-ua-platform-version': '"15.0.0"',
         }
-        self.csv_output_file = 'flipcart.csv'
+        self.csv_output_file = 'flipkart.csv'
         self.excel_output_file = 'flipcart.xlsx'
-        self.json_output_file = 'flipcart.json'
+        self.json_output_file = 'flipkart.json'
 
     def scrape(self):
         flipkart_mongo = Flipkart_Mongo()
